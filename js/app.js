@@ -42,7 +42,7 @@ const checkCol = () => {
   checkWinner(colMoves);
 };
 const checkSlash = () => {
-  const regex = new RegExp('(?<!back)slash');
+  const regex = new RegExp('slash');
   const slashClass = String($(event.currentTarget).attr('class').match(regex));
   if (slashClass == 'slash') {
     const slashMoves = getLineText($('.slash'));
@@ -50,10 +50,10 @@ const checkSlash = () => {
   }
 };
 const checkBackslash = () => {
-  const regex = new RegExp('backslash');
+  const regex = new RegExp('back');
   const backslashClass = String($(event.currentTarget).attr('class').match(regex));
-  if (backslashClass == 'backslash') {
-    const backslashMoves = getLineText($('.backslash'));
+  if (backslashClass == 'back') {
+    const backslashMoves = getLineText($('.back'));
     checkWinner(backslashMoves);
   }
 };
