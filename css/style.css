@@ -1,21 +1,26 @@
 :root {
-  --square-side: 20vw;
+  --square-side-desktop: 20vh;
+  --square-side-mobile: 25vw;
   --border-setting: 5px solid black;
 }
 
 body {
   font-family: monospace;
   margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
 }
 
 #game-board {
   display: flex;
   flex-flow: row wrap;
-  width: calc(var(--square-side) * 3);
+  width: calc(var(--square-side-desktop) * 3);
+  justify-content: center;
+  align-items: center;
 }
 
 .row {
@@ -23,15 +28,25 @@ body {
 }
 
 .square {
-  min-width: var(--square-side);
-  min-height: var(--square-side);
-  width: 10vw;
-  height: 10vw;
+  width: var(--square-side-desktop);
+  height: var(--square-side-desktop);
   cursor: pointer;
-  font-size: 15vw;
+  font-size: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 25vw;
+  max-height: 25vw;
+}
+
+@media screen and (max-width: 750px) {
+  .square {
+    width: var(--square-side-mobile);
+    height: var(--square-side-mobile);
+    font-size: 15vw;
+    max-width: 25vh;
+    max-height: 25vh;
+  }
 }
 
 .left {
